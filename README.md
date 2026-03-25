@@ -7,7 +7,8 @@
 > School of Digital Science, Universiti Brunei Darussalam  
 > **BioNLP 2025** (Proceedings of the 24th Workshop on Biomedical Language Processing)
 
-**Paper Link**: [https://aclanthology.org/search/?q=MuCos-KGC](https://aclanthology.org/search/?q=MuCos-KGC)
+**Paper Link**: [https://aclanthology.org/search/?q=MuCos-KGC](https://aclanthology.org/2025.bionlp-1.27/)
+
 
 ---
 
