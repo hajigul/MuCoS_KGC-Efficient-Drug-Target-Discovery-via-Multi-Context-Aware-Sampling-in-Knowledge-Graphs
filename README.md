@@ -42,15 +42,16 @@ By unifying structural and textual modalities and selectively sampling highly in
 
 ### Figure 1: MuCoS Overall Pipeline
 ![Figure 1: MuCoS Pipeline](model1.png)  
-*Input sequence construction for BERT: `[h] [SEP] Hc [SEP] t [SEP] Tc` (link prediction) or `[h] [SEP] Hc [SEP] r [SEP] Rc` (tail prediction).*
+**Figure 1:** A concise overview of the MuCoS model pipeline, which is designed to predict general and drug-target relations and tail entities. The boxes on the left show the input sequence to the BERT model, where (h) head, (Hc) head context, (t) tail, (Tc) tail context, (r) relation, and (Rc) relation context. This integrated context is passed through the BERT model with a linear classifier and softmax function to generate probabilities for relations and tail.
+
 
 ### Figure 2: Head Context (Hc) Construction with Sampling
 ![Figure 2: Head Context Sampling](hc.png)  
-*One-hop head neighbours → density-based top-n sampling → optimized Hc.*
+**Figure 2:** MuCoS $\mathcal{H}_c$ construction. The left graphical view illustrates one hop head $h$ context, which consists of the set of relations $\mathcal{R}(h)$ ($r_1, r_2, r_3, r_4, r_5, r_6$) and the set of neighbouring tail entities $\mathcal{E}(h)$ ($e_1, e_2, e_3, e_4, e_5, e_6$) associated with the head entity $h$. The middle view shows the sampling process, where only the top-$n$ (suppose $n = 3$) tail entities $e$ are selected and concatenated (||) based on their density $\rho(e)$, to calculate the optimized head context $\mathcal{H}_c$.
 
 ### Figure 3: Relation Context (Rc) Construction with Sampling
 ![Figure 3: Relation Context Sampling](Rc_n.png)  
-*All entity pairs connected by relation r → top-k high-density pairs → optimized Rc.*
+**Figure 3:** $\mathcal{R}_c$ construction. The left view illustrates the relationship $r_1$ and entities (head, tail) connected by $r_1$. The graph in the middle depicts optimization, selecting the top $k$ (suppose $k = 2$) entities based on density $\rho$, retaining pairs such as $(e_2, e_3)$ and $(e_6, e_7)$. The optimized context $\mathcal{R}_c$ is aggregated using concatenation ($||$), as shown in the right section.
 
 **Place the three figures** (`figure1.png`, `figure2.png`, `figure3.png`) inside a `figures/` folder in the repository root.
 
