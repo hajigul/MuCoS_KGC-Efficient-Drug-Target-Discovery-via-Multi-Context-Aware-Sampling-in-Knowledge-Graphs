@@ -90,10 +90,23 @@ source venv/bin/activate    # Linux/Mac
 pip install -r requirements.txt
 
 
-@inproceedings{gul2025mucos,
-  title     = {MuCoS: Efficient Drug-Target Discovery via Multi-Context-Aware Sampling in Knowledge Graphs},
-  author    = {Haji Gul and Abdul Ghani Naim and Ajaz Ahmad Bhat},
-  booktitle = {Proceedings of the 24th Workshop on Biomedical Language Processing (BioNLP 2025)},
-  year      = {2025},
-  url       = {https://aclanthology.org/search/?q=MuCos-KGC}
+
+@inproceedings{gul-etal-2025-mucos,
+    title = "{M}u{C}o{S}: Efficient Drug{--}Target Discovery via Multi-Context-Aware Sampling in Knowledge Graphs",
+    author = "Gul, Haji  and
+      Naim, Abdul Ghani  and
+      Bhat, Ajaz Ahmad",
+    editor = "Demner-Fushman, Dina  and
+      Ananiadou, Sophia  and
+      Miwa, Makoto  and
+      Tsujii, Junichi",
+    booktitle = "Proceedings of the 24th Workshop on Biomedical Language Processing",
+    month = aug,
+    year = "2025",
+    address = "Viena, Austria",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.bionlp-1.27/",
+    doi = "10.18653/v1/2025.bionlp-1.27",
+    pages = "319--327",
+    ISBN = "979-8-89176-275-6"
 }
