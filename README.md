@@ -31,10 +31,16 @@ By unifying structural and textual modalities and selectively sampling highly in
 - **Density-based Multi-Context Sampling** (Head, Tail, and Relation contexts)
 - **BERT-based sequence classification** (supports `bert-base-uncased`, DistilBERT, RoBERTa)
 - **No negative sampling** required
-- **Efficient one-hop neighbour extraction** with top-k degree/density filtering
-- **Link Prediction** (relation prediction) and **Tail Prediction** support
-- **Modular, clean PyTorch + Hugging Face** implementation
-- **Reproducible results** with automatic test-results logging
+- **Efficient context extraction**  
+  - `n` – number of top‑density neighbours used for head/tail contexts  
+  - `k` – number of top‑density entity pairs used for relation context  
+  - Sampling reduces computational complexity from `O(avg_density + avg_appearance)` to `O(2n + k)`
+- **Dual prediction tasks**  
+  - **Link prediction** – infer the missing relation in `(h, ?, t)`  
+  - **Tail prediction** – infer the missing entity in `(h, r, ?)`  
+- **Two evaluation settings**    
+  - **General** – all relations and entities in the KG  
+  - **Drug‑target specific** – only drug‑target interactions  
 
 ---
 
