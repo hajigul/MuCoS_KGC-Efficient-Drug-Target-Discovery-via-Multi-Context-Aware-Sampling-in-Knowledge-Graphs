@@ -80,7 +80,7 @@ MuCoS/
 ---
 
 ## Installation
-git clone <your-repo-url>
+git clone
 cd MuCoS
 
 # Create virtual environment (optional but recommended)
