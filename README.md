@@ -58,7 +58,6 @@ By unifying structural and textual modalities and selectively sampling highly in
 ![Figure 3: Relation Context Sampling](Rc_n.png)  
 **Figure 3:** $\mathcal{R}_c$ construction. The left view illustrates the relationship $r_1$ and entities (head, tail) connected by $r_1$. The graph in the middle depicts optimization, selecting the top $k$ (suppose $k = 2$) entities based on density $\rho$, retaining pairs such as $(e_2, e_3)$ and $(e_6, e_7)$. The optimized context $\mathcal{R}_c$ is aggregated using concatenation ($||$), as shown in the right section.
 
-**Place the three figures** (`figure1.png`, `figure2.png`, `figure3.png`) inside a `figures/` folder in the repository root.
 
 ---
 
