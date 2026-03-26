@@ -65,18 +65,38 @@ By unifying structural and textual modalities and selectively sampling highly in
 
 ```bash
 MuCoS/
-├── main.py                 # Entry point + configuration
-├── train.py                # Training & evaluation loop
-├── dataset.py              # KGDataset with context sampling
-├── utils.py                # Data loading, neighbour extraction, result saving
-├── model.py                # Tokenizer & model class selector
-├── requirements.txt
-├── figures/                # ← Put Figure 1, 2, 3 here
+├── relation_prediction/          # General link prediction (h, ?, t) - all relations
+│   ├── main.py
+│   ├── train.py
+│   ├── dataset.py
+│   ├── utils.py
+│   ├── model.py
+│   └── ... 
+│
+├── specific_relation_prediction/ # Drug-target specific relation prediction (h, ?, t) , ? = r_i
+│   ├── main.py
+│   ├── train.py
+│   ├── dataset.py
+│   ├── utils.py
+│   ├── model.py
+│   └── ... 
+│
+├── tail_prediction/              # Tail entity prediction (h, r, ?)
+│   ├── main.py
+│   ├── train.py
+│   ├── dataset.py
+│   ├── utils.py
+│   ├── model.py
+│   └── ...
+│
+├──  
 │   ├── figure1.png
 │   ├── figure2.png
 │   └── figure3.png
-└── README.md
----
+│
+├── requirements.txt
+├── README.md
+└── ... 
 
 ## Installation
 git clone
