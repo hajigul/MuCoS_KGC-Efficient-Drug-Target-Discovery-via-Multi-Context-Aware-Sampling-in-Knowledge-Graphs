@@ -117,7 +117,7 @@ pip install -r requirements.txt
 
 @inproceedings{gul-etal-2025-mucos,  
     title = "MuCoS: Efficient Drug-Target Discovery via Multi-Context-Aware Sampling in Knowledge Graphs",  
-    author = "Gul, Haji  and Naim, Abdul Ghani  and Bhat, Ajaz Ahmad",  
+    author = "Gul, Haji, and Naim, Abdul Ghani  and Bhat, Ajaz Ahmad",  
     editor = "Demner-Fushman, Dina  and Ananiadou, Sophia  and Miwa, Makoto  and Tsujii, Junichi",  
     booktitle = "Proceedings of the 24th Workshop on Biomedical Language Processing at Association for Computational Linguistics (ACL)",  
     month = aug,  
