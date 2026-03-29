@@ -66,12 +66,11 @@ By unifying structural and textual modalities and selectively sampling highly in
 ```bash
 MuCoS/
 ├── relation_prediction/          # General link prediction (h, ?, t) - all relations
-│   ├── main.py
-│   ├── train.py
-│   ├── dataset.py
+│   ├── config.py
+│   ├── data_loader.py
 │   ├── utils.py
 │   ├── model.py
-│   └── ... 
+│   ├── train.py 
 │
 ├── specific_relation_prediction/ # Drug-target specific relation prediction (h, ?, t) , ? = r_i
 │   ├── main.py
