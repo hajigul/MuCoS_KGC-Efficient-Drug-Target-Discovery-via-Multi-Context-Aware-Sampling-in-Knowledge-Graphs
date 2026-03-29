@@ -5,7 +5,7 @@
 > **MuCoS: Efficient Drug-Target Discovery via Multi-Context-Aware Sampling in Knowledge Graphs**  
 > Haji Gul<sup>a</sup>, Abdul Ghani Naim<sup>b</sup>, Ajaz Ahmad Bhat<sup>*1</sup>  
 > School of Digital Science, Universiti Brunei Darussalam  
-> **BioNLP 2025** (Proceedings of the 24th Workshop on Biomedical Language Processing)
+> **BioNLP at ACL 2025** (Proceedings of the 24th Workshop on Biomedical Language Processing at ACL)
 
 **Paper Link**: [https://aclanthology.org/search/?q=MuCos-KGC](https://aclanthology.org/2025.bionlp-1.27/)
 
@@ -119,11 +119,11 @@ pip install -r requirements.txt
     title = "MuCoS: Efficient Drug-Target Discovery via Multi-Context-Aware Sampling in Knowledge Graphs",  
     author = "Gul, Haji  and Naim, Abdul Ghani  and Bhat, Ajaz Ahmad",  
     editor = "Demner-Fushman, Dina  and Ananiadou, Sophia  and Miwa, Makoto  and Tsujii, Junichi",  
-    booktitle = "Proceedings of the 24th Workshop on Biomedical Language Processing",  
+    booktitle = "Proceedings of the 24th Workshop on Biomedical Language Processing at Association for Computational Linguistics (ACL)",  
     month = aug,  
     year = "2025",  
     address = "Viena, Austria",  
-    publisher = "Association for Computational Linguistics",  
+    publisher = "Association for Computational Linguistics (ACL)",  
     url = "https://aclanthology.org/2025.bionlp-1.27/",  
     doi = "10.18653/v1/2025.bionlp-1.27",  
     pages = "319--327",  
