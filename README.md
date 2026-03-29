@@ -64,7 +64,7 @@ By unifying structural and textual modalities and selectively sampling highly in
 ## Project Structure
 
 ```bash
-MuCoS/
+MuCoS/  (Run relation prediction file --> python train.py)
 ├── relation_prediction/          # General link prediction (h, ?, t) - all relations
 │   ├── config.py
 │   ├── data_loader.py
@@ -96,31 +96,36 @@ MuCoS/
 ├── requirements.txt
 ├── README.md
 └── ... 
-
+```
 ## Installation
+```bash
 git clone
 cd MuCoS
+```
 
 # Create virtual environment (optional but recommended)
+```bash
 python -m venv venv
 source venv/bin/activate    # Linux/Mac
+```
+
 # venv\Scripts\activate     # Windows
-
+```bash
 pip install -r requirements.txt
+```
 
 
-
-@inproceedings{gul-etal-2025-mucos,
-    title = "MuCoS: Efficient Drug-Target Discovery via Multi-Context-Aware Sampling in Knowledge Graphs",
-    author = "Gul, Haji  and Naim, Abdul Ghani  and Bhat, Ajaz Ahmad",
-    editor = "Demner-Fushman, Dina  and Ananiadou, Sophia  and Miwa, Makoto  and Tsujii, Junichi",
-    booktitle = "Proceedings of the 24th Workshop on Biomedical Language Processing",
-    month = aug,
-    year = "2025",
-    address = "Viena, Austria",
-    publisher = "Association for Computational Linguistics",
-    url = "https://aclanthology.org/2025.bionlp-1.27/",
-    doi = "10.18653/v1/2025.bionlp-1.27",
-    pages = "319--327",
-    ISBN = "979-8-89176-275-6"
+@inproceedings{gul-etal-2025-mucos,  
+    title = "MuCoS: Efficient Drug-Target Discovery via Multi-Context-Aware Sampling in Knowledge Graphs",  
+    author = "Gul, Haji  and Naim, Abdul Ghani  and Bhat, Ajaz Ahmad",  
+    editor = "Demner-Fushman, Dina  and Ananiadou, Sophia  and Miwa, Makoto  and Tsujii, Junichi",  
+    booktitle = "Proceedings of the 24th Workshop on Biomedical Language Processing",  
+    month = aug,  
+    year = "2025",  
+    address = "Viena, Austria",  
+    publisher = "Association for Computational Linguistics",  
+    url = "https://aclanthology.org/2025.bionlp-1.27/",  
+    doi = "10.18653/v1/2025.bionlp-1.27",  
+    pages = "319--327",  
+    ISBN = "979-8-89176-275-6"  
 }
