@@ -16,13 +16,6 @@
 Accurate prediction of drug–target interactions is critical for accelerating drug discovery. In this work, we frame drug–target prediction as a link prediction task on heterogeneous biomedical knowledge graphs (KG) that integrate drugs, proteins, diseases, pathways, and other relevant entities. Conventional KG embedding methods such as TransE and ComplExSE are hindered by their reliance on computationally intensive negative sampling and their limited generalization to unseen drug–target pairs. To address these challenges, we propose Multi-Context-Aware Sampling (MuCoS), a novel framework that prioritizes high-density neighbours to capture salient structural patterns and integrates these with contextual embeddings derived from BERT. By unifying structural and textual modalities and selectively sampling highly informative patterns, MuCoS circumvents the need for negative sampling, significantly reducing computational overhead while enhancing predictive accuracy for novel drug–target associations and drug targets. Extensive experiments on the KEGG50k and PharmKG-8k datasets demonstrate that MuCoS outperforms baselines, achieving up to a 13% improvement in MRR for general relation prediction on KEGG50k, a 22% improvement on PharmKG-8k, and a 6% gain in dedicated drug–target relation prediction on KEGG50k
 
 
-By unifying structural and textual modalities and selectively sampling highly informative patterns, MuCoS **eliminates negative sampling**, significantly reduces computational overhead, and improves generalization to unseen drug-target pairs.
-
-**Key Results**:
-- **+13% MRR** on general relation prediction (KEGG50k)
-- **+22% MRR** on PharmKG-8k
-- **+6% MRR** on dedicated drug-target relation prediction (KEGG50k)
-
 ---
 
 ##  Features
