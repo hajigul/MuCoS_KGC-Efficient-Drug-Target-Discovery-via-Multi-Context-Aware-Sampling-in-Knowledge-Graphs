@@ -80,14 +80,6 @@ MuCoS/  (Run relation prediction file --> python train.py)
 │   ├── model.py
 │   └── ... 
 │
-├── tail_prediction/              # Tail entity prediction (h, r, ?)
-│   ├── main.py
-│   ├── train.py
-│   ├── dataset.py
-│   ├── utils.py
-│   ├── model.py
-│   └── ...
-│
 ├──  
 │   ├── figure1.png
 │   ├── figure2.png
