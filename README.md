@@ -1,40 +1,206 @@
 # MuCoS: Efficient Drug-Target Discovery via Multi-Context-Aware Sampling in Knowledge Graphs
 
-**Official PyTorch Implementation** of the MuCoS model presented in:
+**Official PyTorch implementation** of the paper:
 
 > **MuCoS: Efficient Drug-Target Discovery via Multi-Context-Aware Sampling in Knowledge Graphs**  
-> Haji Gul<sup>a</sup>, Abdul Ghani Naim<sup>b</sup>, Ajaz Ahmad Bhat<sup>*1</sup>  
+> Haji Gul, Abdul Ghani Naim, Ajaz Ahmad Bhat  
 > School of Digital Science, Universiti Brunei Darussalam  
-> **BioNLP at ACL 2025** (Proceedings of the 24th Workshop on Biomedical Language Processing at ACL)
+> **BioNLP at ACL 2025**  
+> Proceedings of the 24th Workshop on Biomedical Language Processing
 
 **Paper Link**: [https://aclanthology.org/search/?q=MuCos-KGC](https://aclanthology.org/2025.bionlp-1.27/)
 
 
+## Installation  
+Clone the repository and install the dependencies:  
+
+```bash
+git clone <your-repository-url>
+cd MuCoS
+pip install -r requirements.txt
+```
+
+
+### Create virtual environment (optional but recommended)
+
+```bash
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+### Windows
+```bash
+venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+
+## Requirements  
+Typical dependencies include:  
+
+- torch
+- transformers
+- numpy
+- scikit-learn
+- pandas
+- tqdm
+
+Install them with:
+```bash
+pip install torch transformers numpy scikit-learn pandas tqdm
+```
+
+
+## Data Preparation  
+Prepare your biomedical knowledge graph data in the format expected by the training scripts.  
+A typical dataset directory may look like this:   
+
+```bash
+data/
+├── train.txt
+├── valid.txt
+└── test.txt
+```
+
+
+Each line should represent a triple in the form:
+
+```bash
+head_entity    relation    tail_entity
+```
+
+Example:
+
+```bash
+DrugA    targets    ProteinX
+DrugB    treats     DiseaseY
+```
+
+If your code uses a different folder structure or configuration file, update the paths in config.py accordingly.
+
+
+## How to Run  
+1. Move into the training module
+   
+```bash
+cd relation_prediction
+```
+
+2. Train the model
+
+```bash
+python train.py
+```
+
+
+This will start the MuCoS training pipeline for relation prediction.
+
+3. Configure model and dataset settings  
+Before running training, review and adjust the settings in:  
+
+```bash
+relation_prediction/config.py
+```
+
+#### Typical parameters to configure include:  
+- dataset path
+- pretrained language model
+- batch size
+- learning rate
+- number of epochs
+- sampling parameters n and k
+- output directory
+
+
+## Output  
+Depending on your training configuration, the code may produce:  
+
+- trained model checkpoints
+- prediction outputs
+- evaluation logs
+- MRR and ranking metrics
+- saved experiment artifacts
+
+It is recommended to store outputs in folders such as:  
+
+```bash
+outputs/
+checkpoints/
+logs/
+results/
+```
+
+If these are not yet created in the code, you may add them for cleaner experiment management.  
+
+
+
+---
+
+## Overview
+
+MuCoS is a knowledge-graph-based framework for **drug-target interaction prediction**. It models drug-target discovery as a **link prediction task** over heterogeneous biomedical knowledge graphs containing drugs, proteins, diseases, pathways, and related biomedical entities.
+
+Traditional knowledge graph embedding methods often rely on expensive **negative sampling** and may generalize poorly to unseen drug-target pairs. MuCoS addresses these limitations through a **Multi-Context-Aware Sampling** strategy that selectively focuses on highly informative structural contexts and combines them with **BERT-based textual representations**.
+
+By integrating **structural** and **contextual** information, MuCoS reduces computational overhead while improving prediction quality for both general relation prediction and drug-target discovery.
+
 ---
 
 ## Abstract
-Accurate prediction of drug–target interactions is critical for accelerating drug discovery. In this work, we frame drug–target prediction as a link prediction task on heterogeneous biomedical knowledge graphs (KG) that integrate drugs, proteins, diseases, pathways, and other relevant entities. Conventional KG embedding methods such as TransE and ComplExSE are hindered by their reliance on computationally intensive negative sampling and their limited generalization to unseen drug–target pairs. To address these challenges, we propose Multi-Context-Aware Sampling (MuCoS), a novel framework that prioritizes high-density neighbours to capture salient structural patterns and integrates these with contextual embeddings derived from BERT. By unifying structural and textual modalities and selectively sampling highly informative patterns, MuCoS circumvents the need for negative sampling, significantly reducing computational overhead while enhancing predictive accuracy for novel drug–target associations and drug targets. Extensive experiments on the KEGG50k and PharmKG-8k datasets demonstrate that MuCoS outperforms baselines, achieving up to a 13% improvement in MRR for general relation prediction on KEGG50k, a 22% improvement on PharmKG-8k, and a 6% gain in dedicated drug–target relation prediction on KEGG50k
 
+Accurate prediction of drug-target interactions is critical for accelerating drug discovery. In this work, we frame drug-target prediction as a link prediction task on heterogeneous biomedical knowledge graphs (KGs) that integrate drugs, proteins, diseases, pathways, and other relevant entities. Conventional KG embedding methods such as TransE and ComplExSE are hindered by their reliance on computationally intensive negative sampling and their limited generalization to unseen drug-target pairs.
+
+To address these challenges, we propose **Multi-Context-Aware Sampling (MuCoS)**, a novel framework that prioritizes high-density neighbours to capture salient structural patterns and integrates these with contextual embeddings derived from BERT. By unifying structural and textual modalities and selectively sampling highly informative patterns, MuCoS eliminates the need for negative sampling, significantly reduces computational overhead, and improves generalization to unseen drug-target pairs and targets.
+
+Extensive experiments on the **KEGG50k** and **PharmKG-8k** datasets demonstrate that MuCoS outperforms competitive baselines, achieving:
+
+- **up to 13% improvement in MRR** for general relation prediction on **KEGG50k**
+- **up to 22% improvement in MRR** on **PharmKG-8k**
+- **up to 6% improvement** in dedicated **drug-target relation prediction** on **KEGG50k**
+
+---
+
+## Key Contributions
+
+- **Multi-Context-Aware Sampling** for biomedical knowledge graphs
+- **No negative sampling** required during training
+- **BERT-based contextual modeling** for structured biomedical triples
+- Improved generalization to **unseen drug-target pairs**
+- Reduced computational complexity through **density-based sampling**
+- Support for both **relation prediction** and **tail prediction**
 
 ---
 
-##  Features
+## Features
 
-- **Density-based Multi-Context Sampling** (Head, Tail, and Relation contexts)
-- **BERT-based sequence classification** (supports `bert-base-uncased`, DistilBERT, RoBERTa)
-- **No negative sampling** required
-- **Efficient context extraction**  
-  - `n` – number of top‑density neighbours used for head/tail contexts  
-  - `k` – number of top‑density entity pairs used for relation context  
-  - Sampling reduces computational complexity from `O(avg_density + avg_appearance)` to `O(2n + k)`
-- **Dual prediction tasks**  
-  - **Link prediction** – infer the missing relation in `(h, ?, t)`  
-  - **Tail prediction** – infer the missing entity in `(h, r, ?)`  
-- **Two evaluation settings**    
-  - **General** – all relations and entities in the KG  
-  - **Drug‑target specific** – only drug‑target interactions  
+- **Density-based multi-context sampling**
+  - Head context
+  - Tail context
+  - Relation context
+
+- **Transformer-based sequence classification**
+  - `bert-base-uncased`
+  - DistilBERT
+  - RoBERTa
+
+- **Efficient sampling**
+  - `n`: number of top-density neighbours used for head/tail contexts
+  - `k`: number of top-density entity pairs used for relation context
+
+- **Reduced complexity**
+  - Sampling reduces complexity from `O(avg_density + avg_appearance)` to `O(2n + k)`
+
+- **Dual prediction tasks**
+  - **Relation prediction**: predict the missing relation in `(h, ?, t)`
+  - **Tail prediction**: predict the missing entity in `(h, r, ?)`
+
+- **Two evaluation settings**
+  - **General setting**: all relations and entities in the KG
+  - **Drug-target-specific setting**: only drug-target interactions
 
 ---
+
 
 ##  Model Pipeline
 
@@ -52,57 +218,74 @@ Accurate prediction of drug–target interactions is critical for accelerating d
 **Figure 3:** $\mathcal{R}_c$ construction. The left view illustrates the relationship $r_1$ and entities (head, tail) connected by $r_1$. The graph in the middle depicts optimization, selecting the top $k$ (suppose $k = 2$) entities based on density $\rho$, retaining pairs such as $(e_2, e_3)$ and $(e_6, e_7)$. The optimized context $\mathcal{R}_c$ is aggregated using concatenation ($||$), as shown in the right section.
 
 
----
-
 ## Project Structure
 
 ```bash
-MuCoS/  (Run relation prediction file --> python train.py)
-├── relation_prediction/          # General link prediction (h, ?, t) - all relations
+MuCoS/
+├── relation_prediction/          # General relation prediction: (h, ?, t)
 │   ├── config.py
 │   ├── data_loader.py
 │   ├── utils.py
 │   ├── model.py
-│   ├── train.py 
-│
-├── specific_relation_prediction/ # Drug-target specific relation prediction (h, ?, t) , ? = r_i
-│   ├── main.py
-│   ├── train.py
-│   ├── dataset.py
-│   ├── utils.py
-│   ├── model.py
-│   └── ... 
-│
-├──  
-│   ├── figure1.png
-│   ├── figure2.png
-│   └── figure3.png
-│
+│   └── train.py
+├── model1.png
+├── hc.png
+├── Rc_n.png
 ├── requirements.txt
 ├── README.md
-└── ... 
+└──
 ```
-## Installation
+
+
+### Tasks Supported
+
+1. Relation Prediction  
+Predict the missing relation in:
+
 ```bash
-git clone
-cd MuCoS
+(h, ?, t)
 ```
 
-# Create virtual environment (optional but recommended)
+2. Tail Prediction  
+Predict the missing tail entity in:
 ```bash
-python -m venv venv
-source venv/bin/activate    # Linux/Mac
+(h, r, ?)
 ```
 
-# venv\Scripts\activate     # Windows
+3. Drug-Target Prediction
+
+Specialized evaluation focused on drug-target interaction discovery.
+
+
+
+## Experimental Settings  
+
+MuCoS supports two main evaluation settings:   
+
+- General Setting: Uses all entities and relations in the biomedical knowledge graph.
+- 
+- Drug-Target-Specific Setting: Restricts evaluation to drug-target interaction pairs for focused biomedical discovery.  
+
+
+
+
+
+## Notes
+
+- The method combines graph structure with textual context  
+- It is especially useful when negative sampling is expensive or unstable  
+- Larger pretrained models may require more GPU memory and training time   
+- Sampling parameters n and k should be tuned based on the dataset and task
+
+
+
+## How to Cite  
+If you use this repository, code, or findings in your research, please cite:
+
 ```bash
-pip install -r requirements.txt
-```
-
-
 @inproceedings{gul-etal-2025-mucos,  
     title = "MuCoS: Efficient Drug-Target Discovery via Multi-Context-Aware Sampling in Knowledge Graphs",  
-    author = "Gul, Haji, and Naim, Abdul Ghani  and Bhat, Ajaz Ahmad",  
+    author = "Gul, Haji  and Naim, Abdul Ghani  and Bhat, Ajaz Ahmad",  
     editor = "Demner-Fushman, Dina  and Ananiadou, Sophia  and Miwa, Makoto  and Tsujii, Junichi",  
     booktitle = "Proceedings of the 24th Workshop on Biomedical Language Processing at Association for Computational Linguistics (ACL)",  
     month = aug,  
@@ -114,3 +297,4 @@ pip install -r requirements.txt
     pages = "319--327",  
     ISBN = "979-8-89176-275-6"  
 }
+```
