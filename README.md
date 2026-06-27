@@ -122,18 +122,6 @@ Depending on your training configuration, the code may produce:
 - MRR and ranking metrics
 - saved experiment artifacts
 
-It is recommended to store outputs in folders such as:  
-
-```bash
-outputs/
-checkpoints/
-logs/
-results/
-```
-
-If these are not yet created in the code, you may add them for cleaner experiment management.  
-
-
 
 ---
 
